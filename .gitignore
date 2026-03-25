@@ -1,0 +1,7 @@
+venv/
+__pycache__/
+*.pyc
+.env
+data/logs/*.json
+test_ai.py
+test_workflow.py
