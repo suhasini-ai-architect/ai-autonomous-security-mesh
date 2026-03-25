@@ -39,23 +39,11 @@ An **Autonomous AI First Responder System** that:
 
 ---
 
-## 🔄 System Workflow (Lifecycle of a Threat)
+## 🔄 Architecture Diagram
 
-```mermaid
-graph TD
-    A[Log Ingestion (Streamlit UI)] --> B[Supervisor Agent (Triage)]
-    B -->|Threat Detected| C[Forensic Agent]
-    B -->|No Threat| Z[Discard / Log]
+![architecture](asset/architecture.jpg)
 
-    C --> D[Strategist Agent]
-    D --> E[Executor Agent]
-    E --> F[Validation Check]
-
-    F -->|Success| G[Closure + Audit Trail]
-    F -->|Failure| D
-
-    G --> H[Resolved / Escalated]
-```
+ 
 
 ---
 
