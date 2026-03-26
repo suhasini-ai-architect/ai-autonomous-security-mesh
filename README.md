@@ -204,9 +204,8 @@ This project showcases:
 * Production-ready design thinking
 
 ---
+🧑‍💻 Author
 
-## 🏁 Conclusion
-
-This is not just an AI project — it's a **blueprint for autonomous enterprise systems** capable of reasoning, acting, and self-correcting in real-time.
+AI Architect | Enterprise AI Systems | Multi-Agent Design
 
 self-correcting in real-time.
