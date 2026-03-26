@@ -1,6 +1,6 @@
-# 🛡️ Autonomous Security & Self-Healing AI Mesh
+# Autonomous Security & Self-Healing AI Mesh
 
-## 🚀 Overview
+## Overview
 
 This project demonstrates an **Agentic AI Architecture for Autonomous Security Operations (SecOps)**. It simulates a next-generation **self-healing system** that can:
 
@@ -15,7 +15,7 @@ Unlike traditional rule-based systems, this solution uses a **multi-agent, state
 
 ---
 
-## 🎯 Problem Statement
+## Problem Statement
 
 Modern Security Operations Centers (SOC) face:
 
@@ -26,7 +26,7 @@ Modern Security Operations Centers (SOC) face:
 
 ---
 
-## 💡 Solution
+## Solution
 
 An **Autonomous AI First Responder System** that:
 
@@ -39,13 +39,13 @@ An **Autonomous AI First Responder System** that:
 
 ---
 
-## 🔄 Architecture Diagram
+## Architecture Diagram
 
 ![architecture](asset/architecture.png)
 
 ---
 
-## 🧠 Architecture Overview
+## Architecture Overview
 
 ```mermaid
 graph LR
@@ -88,36 +88,36 @@ graph LR
 
 ---
 
-## 🏗️ Key Features
+## Key Features
 
-### ✅ Autonomous Triage
+### Autonomous Triage
 
 * Filters noise before expensive LLM calls
 * Reduces compute cost
 
-### ✅ Stateful Reasoning
+### Stateful Reasoning
 
 * Maintains context across steps
 * Tracks previous failures and decisions
 
-### ✅ Self-Healing Loop
+### Self-Healing Loop
 
 * Implements cyclic execution using LangGraph
 * Automatically retries failed remediation
 
-### ✅ Local AI Deployment
+### Local AI Deployment
 
 * Runs on **Ollama** with local LLM
 * Ensures **data privacy & compliance**
 
-### ✅ Human-in-the-Loop (HITL)
+### Human-in-the-Loop (HITL)
 
 * Streamlit dashboard for visibility
 * Supports escalation workflows
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Layer         | Technology    | Purpose                       |
 | ------------- | ------------- | ----------------------------- |
@@ -129,7 +129,7 @@ graph LR
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 src/
@@ -146,7 +146,7 @@ src/
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 1. User submits a log/event
 2. Supervisor determines if it's a threat
@@ -158,7 +158,7 @@ src/
 
 ---
 
-## 📈 What Makes This Advanced
+## What Makes This Advanced
 
 * Not a chatbot → **State Machine AI System**
 * Not linear → **Cyclic execution (self-healing)**
@@ -166,7 +166,7 @@ src/
 
 ---
 
-## 🧪 Example Use Case
+## Example Use Case
 
 **Input:** Suspicious login from unknown IP
 
@@ -179,7 +179,7 @@ src/
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements
 
 * Integration with SIEM tools (Splunk, Sentinel)
 * Real-time streaming ingestion (Kafka)
@@ -188,24 +188,9 @@ src/
 
 ---
 
-## 🧑‍💻 Author
+## Author
 
 AI Architect | Multi-Agent Systems | Enterprise AI Design
 
----
 
-## ⭐ Why This Project Matters
-
-This project showcases:
-
-* Enterprise-grade AI architecture
-* Real-world problem solving (Security Automation)
-* Advanced orchestration using LangGraph
-* Production-ready design thinking
-
----
-🧑‍💻 Author
-
-AI Architect | Enterprise AI Systems | Multi-Agent Design
-
-self-correcting in real-time.
+real-time.
