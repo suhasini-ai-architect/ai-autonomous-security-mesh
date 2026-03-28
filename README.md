@@ -186,11 +186,8 @@ src/
 * Multi-model routing (cheap vs powerful LLMs)
 * Kubernetes deployment
 
----
+
 
 ## Author
 
 AI Architect | Multi-Agent Systems | Enterprise AI Design
-
-
-real-time.
