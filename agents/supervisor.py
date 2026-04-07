@@ -1,30 +1,49 @@
-import requests
+import re # Add this to your imports at the top
 
-def supervisor_node(state):
-    print("--- 🛡️ SUPERVISOR AGENT EVALUATING INCIDENT ---")
+def supervisor_node(state: MeshState):
+    st.toast(f"🕵️ Sentry ({SENTRY_MODEL}) inspecting traffic...")
     
     prompt = f"""
-    You are a Security Operations Center (SOC) Supervisor.
-    Determine if the following log requires a full forensic investigation:
-    "{state['raw_logs']}"
+    [STRICT CLASSIFICATION]
+    Analyze the log and respond with ONLY the word 'YES' or 'NO'. 
+    No explanations. No periods.
     
-    Respond with only 'YES' or 'NO'.
-    """
+    - Threat (SQL, Brute Force, Unauthorized): YES
+    - Safe (Login, Profile Update, Logout): NO
+    
+    LOG: '{state['logit_input']}'
+    DECISION:"""
     
     try:
         response = requests.post(
-            "http://localhost:11434/api/generate",
+            OLLAMA_URL, 
             json={
-                "model": "llama3.2:3b",
-                "prompt": prompt,
-                "stream": False
-            }
+                "model": SENTRY_MODEL, 
+                "prompt": prompt, 
+                "stream": False,
+                "options": {"temperature": 0} 
+            }, 
+            timeout=10
         )
-        decision = response.json()['response'].strip().upper()
+        # 1. Get raw text and clean it
+        text = response.json().get('response', 'NO').upper().strip()
+        
+        # 2. Use Regex to find the FIRST occurrence of YES or NO only
+        match = re.search(r'\b(YES|NO)\b', text)
+        decision = match.group(1) if match else "NO"
+            
     except:
-        decision = "YES" # Default to safety
+        decision = "YES" # Default to safety on connection error
+
+    # Double-check: If input is very simple and model is still flagging it, force NO
+    if "logged in" in state['logit_input'].lower() and decision == "YES":
+        decision = "NO"
+
+    status_text = '🚨 Escalating' if decision == 'YES' else '✅ Allowed'
+    msg = f"🛡️ Sentry Filter: **{decision}** ({status_text})"
     
     return {
-        "audit_trail": [f"Supervisor Decision: {decision}"],
+        "audit_trail": state.get("audit_trail", []) + [msg],
+        "next_step": decision,
         "retry_count": state.get("retry_count", 0)
     }
