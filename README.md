@@ -45,6 +45,13 @@ An **Autonomous AI First Responder System** that:
 
 ---
 
+## Live Demo
+See the compliance audit in action:
+
+![Demo](./asset/PolicyDrift.gif)
+
+---
+
 ## Architecture Overview
 
 ```mermaid
