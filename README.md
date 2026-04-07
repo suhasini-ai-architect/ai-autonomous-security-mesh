@@ -146,6 +146,58 @@ src/
 
 ---
 
+## 1. Prerequisites
+
+Python 3.10+
+
+Ollama installed and running (ollama.com)
+
+Models: Download the required Local LLMs:
+
+```
+ollama pull phi4-mini:latest
+ollama pull llama3.2:3b
+```
+
+---
+
+## 2. Installation
+Clone the repository and set up a virtual environment:
+
+git clone https://github.com/suhasini-ai-architect/ai-autonomous-security-mesh.git
+
+```
+cd ai-autonomous-security-mesh
+
+python -m venv venv
+
+source venv/bin/activate  # Windows: .\venv\Scripts\activate
+
+pip install streamlit requests langgraph
+```
+
+---
+
+## 3. Execution
+Ensure the Ollama server is running in the background, then launch the Mesh:
+
+```
+
+### In a separate terminal
+ollama serve
+
+# Run the Streamlit UI
+streamlit run app.py
+```
+
+---
+## 4. Testing the Mesh
+1.The Sentry Filter: Select "Normal Traffic". Observe how the phi4-mini model stops the flow to save compute costs.
+
+2.The Expert Analysis: Select "SQL Injection". Watch the system escalate the task to llama3.2:3b.
+
+3.The Self-Healing Loop: Observe the Verification step. If a mitigation fails, the graph will automatically re-route for a new strategy.
+
 ## How It Works
 
 1. User submits a log/event
